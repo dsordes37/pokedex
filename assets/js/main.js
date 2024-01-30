@@ -1,25 +1,10 @@
 let offset=0;
-let limit=10;
+let limit=30;
 const url=`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`
 
 const pokeList=document.querySelector('#pokemonList')
 
-/*
-fetch(url).then((reponse)=>{
-    console.log(reponse)
-})
-
-
-ESSA SERIA A VERSÃO MAIS LONGA DA REQUISIÇÃO
-PORÉM, COM ARROW FUNCTIONS É POSSÍVEL REDUZI-LA
-COMO MOSTRADO ABAIXO
-*/
-
-//o FETCH faz a requesição dos dados para a url e o .JSON transforma o resultado em json
-fetch(url).then((response)=> response.json())
-//o RESULTS converte o JSONBODY pra uma lista de objetos, que usaremos para extrair as informações
-.then((jsonBody)=> jsonBody.results)
-.then((pokemons)=>{
+function pokemonToPokeList(pokemons){
     let num=1
     pokemons.forEach(element => {
         pokeList.innerHTML+=`
@@ -37,5 +22,24 @@ fetch(url).then((response)=> response.json())
         `;
         num++
     });
+}
+
+/*
+fetch(url).then((reponse)=>{
+    console.log(reponse)
+})
+
+
+ESSA SERIA A VERSÃO MAIS LONGA DA REQUISIÇÃO
+PORÉM, COM ARROW FUNCTIONS É POSSÍVEL REDUZI-LA
+COMO MOSTRADO ABAIXO
+*/
+
+//o FETCH faz a requesição dos dados para a url e o .JSON transforma o resultado em json
+fetch(url).then((response)=> response.json())
+//o RESULTS converte o JSONBODY pra uma lista de objetos, que usaremos para extrair as informações
+.then((jsonBody)=> jsonBody.results)
+.then((pokemons)=>{
+    pokemonToPokeList(pokemons)
 })
 .catch((erro)=> console.log(erro))
