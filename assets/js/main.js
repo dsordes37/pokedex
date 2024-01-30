@@ -17,11 +17,6 @@ function pokemonToPokelist(pokemon){
         `;
 }
 
-
-
 pokeApi.getPokemons().then((pokemons)=>{
-    
-    pokemons.map((element) => {
-        pokeList.innerHTML+=pokemonToPokelist(element)
-    });
+    pokemons.map((element)=>pokeList.innerHTML+=pokemonToPokelist(element));
 })
