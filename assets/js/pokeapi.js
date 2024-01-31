@@ -1,7 +1,12 @@
+
+
+
 const pokeApi={
 
     async getDetails(pokemon){
-        return fetch(pokemon.url).then((response)=>response.json())
+        return fetch(pokemon.url)
+        .then((response)=>response.json())
+        .then(createPokeModel)
     },
 
     async getPokemons(offset=0, limit=10){
