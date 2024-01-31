@@ -40,6 +40,40 @@
 }.pokemon>h2{
     align-self: flex-start;
 }
+
+.water{
+    background-color: #74bcfc;
+}.fire{
+    background-color: #fc6c6c;
+}.electric{
+    background-color: #fcdc6c;
+}.poison{
+    background-color: #b66cfc;
+}.ground{
+    background-color: #c5ac5c;
+}.normal{
+    background-color: #bbbcbc;
+}.bug{
+    background-color: #6ecc3c;
+}.ghost{
+    background-color: #724ccc;
+}.fighting{
+    background-color: #fcbe6c;
+}.dark{
+    background-color: #352c3c;
+}.rock{
+    background-color: #838383;
+}.psychic{
+    background-color: #fc6c9c;
+}.fairy{
+    background-color: #fc6cdd;
+}.dragon{
+    background-color: #657cfc;
+}.steel{
+    background-color: #95b2be;
+}
+
+
 @media(max-width:360px){
     #pokemonList{
         grid-template-columns: 1fr;

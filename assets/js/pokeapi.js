@@ -1,5 +1,9 @@
 const pokeApi={
 
+    async getDetails(pokemon){
+        return fetch(pokemon.url).then((response)=>response.json())
+    },
+
     async getPokemons(offset=0, limit=10){
         const url=`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`
 
@@ -21,6 +25,14 @@ const pokeApi={
         
         return fetch(url).then((response)=> response.json())
         .then((jsonBody)=> jsonBody.results)
+
+        //seleciona cada parte do result que é uma lista e anda para a função GRTDETAILS que faz um novo fetch para pegar os detalhes
+        .then((results)=>results.map((element)=>this.getDetails(element)))
+
+        // o PROMISSE.ALL recebe uma lista de promessas e agrada enquanto todas retornam para dar proseguimento ao sistema
+        .then((details)=>Promise.all(details))
+        .then((deta)=>deta)
+
         .catch((erro)=> console.error(erro))
     }
 };
