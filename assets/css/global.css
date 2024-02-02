@@ -8,4 +8,7 @@
     font-family: 'Roboto', sans-serif;
 }main{
     padding: 1rem;
+}a{
+    color: currentColor;
+    text-decoration: none;
 }
