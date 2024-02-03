@@ -3,8 +3,7 @@ const pokeList=document.querySelector('#pokemonList')
 
 
 function pokemonToPokelist(pokemon){
-    return `
-        <li class="pokemon ${pokemon.types[0]}">
+    return `<li class="pokemon ${pokemon.types[0]}">
             <span>#${pokemon.id.toString().padStart(3, 0)}</span>
             <h2>${pokemon.name}</h2>
             <div>
