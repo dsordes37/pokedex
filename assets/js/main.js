@@ -17,6 +17,6 @@ function pokemonToPokelist(pokemon){
             </a>`;
 }
 
-pokeApi.getPokemons(0, 20).then((pokemons)=>{
+pokeApi.getPokemons(140, 20).then((pokemons)=>{
     pokemons.map((element)=>pokeList.innerHTML+=pokemonToPokelist(element));
 })

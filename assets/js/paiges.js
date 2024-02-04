@@ -1,11 +1,13 @@
 const parametros= new URLSearchParams(window.location.search)
 const id= parametros.get('id')
-const content= document.querySelector('body')
+const content= document.querySelector('#content')
 
 
 function pokemonToPokePaige(pokemon){
+    content.className=pokemon.types[0]
+
     return`
-        <section id="content" class="${pokemon.types[0]}">
+        
                 
         <header>
             <a href="../index.html">
@@ -29,9 +31,7 @@ function pokemonToPokePaige(pokemon){
             
             </div>
             <div class="info">
-                <div>
-                    <h2 class="statistic">about</h2>
-                </div>
+                
                 <div>
                     <table>
                         <tr>
@@ -54,7 +54,7 @@ function pokemonToPokePaige(pokemon){
                 </div>
             </div>
         </main>
-    </section>
+    
     `
 }
 

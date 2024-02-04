@@ -1,25 +1,38 @@
 #content{
     height: 100vh;
+    display: grid;
+    grid-template-rows: 1fr 9fr;
 }
 header{
     display: flex;
     justify-content: space-between;
-    padding: 4rem 2rem 0 2rem;
-    height: 10vh;
+    padding: 1rem 1rem 0 1rem;
+    
+}header a, header div{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}header a:hover, header div:hover{
+    background-color: rgba(255, 255, 255, 0.418);
 }header i{
     color: white;
-    transform: scale(1.5);
-    padding: 3px;
+    font-size: 30px;
+
 
 }main{
     padding: 0;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
 }main>div{
     padding: 1rem;
 }.perfil{
     display: flex;
     flex-direction: column;
     position: relative;
-    height: 38vh;
     color: white;
 }.type{
     display: flex;
@@ -30,18 +43,18 @@ header{
 }.perfil>span{
     align-self: flex-end;
     font-size: 1.5rem;
+    position: relative;
 }h1{
-    margin-bottom: 0;
-    font-size: 4rem;
+    margin: 0;
+    font-size: 3.5rem;
 }.pokeImg{
     position: absolute;
-    height: 200px;
+    height: 250px;
     align-self: center;
-    bottom: -35px;
+    bottom: -25px;
     z-index: 1;
 }.info{
     background-color: white;
-    height: 52vh;
     position: absolute;
     bottom: 0;
     left: 0;
@@ -54,7 +67,7 @@ th{
     color: gray;
 }th, td{
     padding: 20px 7px;
-    font-size: 1.3rem;
+    font-size: 1.1rem;
 }
 
 h1, h2, h3{
@@ -76,7 +89,7 @@ h1, h2, h3{
 
 @media(min-width:600px){
     .pokeImg{
-        height: 300px;
+        height: 270px;
         bottom: -45px;
     }h1{
         font-size: 5rem;
