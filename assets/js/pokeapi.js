@@ -15,6 +15,8 @@ const pokeApi={
     },
 
     async getPokemons(offset=0, limit=10){
+        const boll=document.querySelector('.carga')
+        boll.style.display='block'
         const url=`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`
 
 

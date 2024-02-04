@@ -1,4 +1,16 @@
+@keyframes giro {
+    0%{
+        transform: rotate(0deg);
+    }100%{
+        transform: rotate(360deg);
+    }
+}
 
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 #pokemonList{
     list-style: none;
     display: grid;
@@ -44,6 +56,26 @@
 }
 
 
+.carga{
+    width: 40px;
+    display: none;
+}
+.carga>img{
+    width: 100%;
+    animation: giro .5s 0s infinite forwards normal;
+}
+
+#carregar{
+    color: white;
+    background-color: rgb(36, 87, 255);
+    border: none;
+    padding: 4px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: none;
+}#carregar:hover{
+    background-color: rgb(64, 109, 255);
+}
 
 .grass{
     background-color: #49d086;

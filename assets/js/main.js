@@ -1,4 +1,8 @@
 const pokeList=document.querySelector('#pokemonList')
+const btLoad=document.querySelector('#carregar')
+const boll=document.querySelector('.carga')
+
+let offset=0
 
 
 
@@ -17,6 +21,19 @@ function pokemonToPokelist(pokemon){
             </a>`;
 }
 
-pokeApi.getPokemons(140, 20).then((pokemons)=>{
-    pokemons.map((element)=>pokeList.innerHTML+=pokemonToPokelist(element));
-})
+function carregaPoke(){
+    pokeApi.getPokemons(offset, 24).then((pokemons)=>{
+
+        pokemons.map((element)=>{
+            boll.style.display='none'
+            btLoad.style.display='block'
+            offset++
+            return pokeList.innerHTML+=pokemonToPokelist(element)
+        });
+    })
+}
+
+carregaPoke()
+
+
+btLoad.addEventListener('click', carregaPoke)
