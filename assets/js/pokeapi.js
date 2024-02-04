@@ -6,6 +6,11 @@ const pokeApi={
     async getDetails(pokemon){
         return fetch(pokemon.url)
         .then((response)=>response.json())
+    },
+
+    async getInPokeModel(pokemon){
+        return fetch(pokemon.url)
+        .then((response)=>response.json())
         .then(createPokeModel)
     },
 
@@ -32,12 +37,19 @@ const pokeApi={
         .then((jsonBody)=> jsonBody.results)
 
         //seleciona cada parte do result que é uma lista e anda para a função GRTDETAILS que faz um novo fetch para pegar os detalhes
-        .then((results)=>results.map((element)=>this.getDetails(element)))
+        .then((results)=>results.map((element)=>this.getInPokeModel(element)))
 
         // o PROMISSE.ALL recebe uma lista de promessas e agrada enquanto todas retornam para dar proseguimento ao sistema
         .then((details)=>Promise.all(details))
         .then((deta)=>deta)
 
         .catch((erro)=> console.error(erro))
+    },
+
+    async getSinglePokemon(id){
+        const url=`https://pokeapi.co/api/v2/pokemon/${id}`
+
+        return fetch(url).then((response)=>response.json())
+        .then(createPokeModel)
     }
 };
